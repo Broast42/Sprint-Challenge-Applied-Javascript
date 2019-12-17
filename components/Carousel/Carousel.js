@@ -31,7 +31,7 @@ function carousel(){
   const tree = document.createElement("img");
   const turn = document.createElement("img");
 
-  let index = 0;
+  
 
   carDiv.classList.add("carousel");
   leftDiv.classList.add("left-button");
@@ -50,32 +50,79 @@ function carousel(){
   carDiv.appendChild(turn);
   carDiv.appendChild(rightDiv);
 
+  leftDiv.addEventListener("click", changeDisplayDwn);
+
+  rightDiv.addEventListener("click", changeDisplay);
+
+
+mount.style.display = "block";
+let index = 0;
+
+function changeDisplay(){
+  
+  index++ ;
+  if (index > 3){
+    index = 0;
+  } 
+
   if(index === 0){
     mount.style.display = "block";
+    comp.style.display = "none";
+    tree.style.display = "none";
+    turn.style.display = "none";
   }else if(index === 1){
+    mount.style.display = "none";
     comp.style.display = "block";
+    tree.style.display = "none";
+    turn.style.display = "none";
   }else if(index === 2){
+    mount.style.display = "none";
+    comp.style.display = "none";
     tree.style.display = "block";
+    turn.style.display = "none";
   }else if (index === 3){
+    mount.style.display = "none";
+    comp.style.display = "none";
+    tree.style.display = "none";
     turn.style.display = "block";
   }
+}
 
-  leftDiv.addEventListener("click", ()=>{
-    index - 1;
-    if (index < 0){
-      index = 3;
-    }
-  })
+function changeDisplayDwn(){
+  
+  index-- ;
+  if (index < 0){
+    index = 3;
+  } 
 
-  rightDiv.addEventListener("click", ()=>{
-    index + 1;
-    if (index > 3){
-      index = 0;
-    }
-  })
+  if(index === 0){
+    mount.style.display = "block";
+    comp.style.display = "none";
+    tree.style.display = "none";
+    turn.style.display = "none";
+  }else if(index === 1){
+    mount.style.display = "none";
+    comp.style.display = "block";
+    tree.style.display = "none";
+    turn.style.display = "none";
+  }else if(index === 2){
+    mount.style.display = "none";
+    comp.style.display = "none";
+    tree.style.display = "block";
+    turn.style.display = "none";
+  }else if (index === 3){
+    mount.style.display = "none";
+    comp.style.display = "none";
+    tree.style.display = "none";
+    turn.style.display = "block";
+  }
+}
+ 
 
+  ;
   return carDiv;
 
   
 
 }
+
